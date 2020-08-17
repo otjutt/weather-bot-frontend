@@ -33,7 +33,7 @@ export async function list() {
 
 export async function read(id) {
     let response = await axios({
-        method: 'post',
+        method: 'get',
         url: config.serverUrl + '/api/v1/sessions/' + id
     });
     return await response.data;

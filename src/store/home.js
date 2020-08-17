@@ -6,11 +6,11 @@ const ACTION_START_CHAT = 'start_chat';
 function actionStartChat() {
     return (dispatch) => {
         SessionService.create().then((response) => {
-            localStorage.setItem('current_session', JSON.stringify(response));
+            localStorage.setItem('current_session', JSON.stringify(response.data));
             return dispatch({
                 type: ACTION_START_CHAT,
                 data: {
-                    sessionId: response.id
+                    sessionId: response.data.id
                 }
             });
         });

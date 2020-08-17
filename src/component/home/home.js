@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import { Redirect } from "react-router-dom";
 import ChatBoxNav from "../chat-box/chat-box-nav";
 import { actionStartChat } from "../../store/home";
 
@@ -12,6 +13,10 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        let currentSession = localStorage.getItem('current_session');
+        if (currentSession !== null) {
+            this.props.history.push('/sessions/' + JSON.parse(currentSession).id);
+        }
     }
 
     onStartChat(e) {
@@ -20,6 +25,10 @@ class Home extends React.Component {
     }
 
     render() {
+        if (localStorage.getItem('current_session') !== null) {
+            let session = JSON.parse(localStorage.getItem('current_session'));
+            return (<Redirect to={"/sessions/" + session.id}/>);
+        }
         return (
             <div>
                 <div className={`wrapper`} >

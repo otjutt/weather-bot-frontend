@@ -14,14 +14,17 @@ import {
 } from 'connected-react-router';
 
 import Home from './component/home/home';
+import Session from './component/session/session';
 
 import { reducers as homeReducers } from "./store/home";
+import { reducers as sessionListReducers } from "./store/session-list";
 
 /* Create store. */
 const store = createStore(
     combineReducers({
         router: connectRouter(history),
-        home: homeReducers
+        home: homeReducers,
+        sessionList: sessionListReducers
     }),
     applyMiddleware(routerMiddleware(history), thunk)
 );
@@ -32,6 +35,7 @@ ReactDOM.render(
             <ConnectedRouter history={history}>
                 <Switch>
                     <Route path="/" key="home" component={Home} strict exact/>,
+                    <Route path="/sessions" key="sessions_list" component={Session} strict exact/>,
                     <Route key="404" render={() => <h1>Not Found</h1>}/>
                 </Switch>
             </ConnectedRouter>

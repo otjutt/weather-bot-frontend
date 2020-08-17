@@ -11,3 +11,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background-color: #eeeeee;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-container {
+  max-width: 700px;
+  background-color: #fff;
+  height: 500px;
+  width: 100%;
+  margin: 50px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.message-form table {
+  width: 100%;
+}
+
+.message-form {
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  flex-grow: 0;
+}
+
+.tab-nav-bar {
+  flex-grow: 0;
+}
+
+.messages-container {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.start-chat-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.chat-box-bubble__wrapper {
+  margin: 10px 0 0 0;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.chat-box-bubble__wrapper table {
+  width: 100%;
+}
+
+.chat-box-bubble__wrapper .chat-box-bubble__author {
+  font-weight: bold;
+}
+
+.chat-box-bubble__wrapper.chat-box-bubble__wrapper--right {
+  text-align: right;
+}
+
+.messages-container table {
+  width: 100%;
+}
